@@ -13,7 +13,7 @@ Check out the code. It's commented enough to help you understand what's happenin
 
 # Example
 ```lua
-local math = require("library.directory.string")
+local math = require("lua-utils.string")
 
 -- Returns and prints 4
 local clamped = math.clamp(5, 0, 4) -- x, min, max
