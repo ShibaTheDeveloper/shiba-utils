@@ -1,5 +1,10 @@
 local Module = {}
 
+-- Insert base functions into module
+for key, value in pairs(table) do
+    Module[key] = value
+end
+
 -- Deep clone with cyclic reference handling
 local function deepClone(original, seen)
     if type(original) ~= "table" then

@@ -1,5 +1,10 @@
 local Module = {}
 
+-- Insert base functions into module
+for key, value in pairs(math) do
+    Module[key] = value
+end
+
 -- Simple lerp
 function Module.lerp(a, b, factor)
     return a + (b - a) * factor
@@ -36,6 +41,25 @@ function Module.distance2D(x1, y1, x2, y2)
     x2 = x2 or 0
 
     return math.sqrt((x2 - x1)^2 + (y2 - y1)^2)
+end
+
+-- Splits total seconds (can include fractional part) into years, days, hours, minutes, seconds, and milliseconds
+function Module.splitTime(seconds)
+    local years = math.floor(seconds / (365 * 24 * 3600))
+    seconds = seconds % (365 * 24 * 3600)
+
+    local days = math.floor(seconds / (24 * 3600))
+    seconds = seconds % (24 * 3600)
+
+    local hours = math.floor(seconds / 3600)
+    seconds = seconds % 3600
+
+    local minutes = math.floor(seconds / 60)
+    local seconds = math.floor(seconds % 60)
+
+    local milliseconds = math.floor((seconds - math.floor(seconds)) * 1000)
+
+    return years, days, hours, minutes, seconds, milliseconds
 end
 
 -- Performs a bitwise XOR operation on two integers (0-255)
