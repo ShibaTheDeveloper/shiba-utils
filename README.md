@@ -1,3 +1,6 @@
+# Notice
+Library is incomplete, but it can be used perfectly fine.
+
 # How do I use it?
 Using the library is very straightforward:
 
