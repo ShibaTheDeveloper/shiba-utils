@@ -40,8 +40,40 @@ range = {
 }
 ]]
 
+-- Check if a range has a point inside
+local function contains(range, point)
+    return point.x >= range.x
+        and point.x < range.x + range.width
+        and point.y >= range.y
+        and point.y < range.y + range.height
+end
+
 function Quadtree:rectangularQuery(range)
-    --%note TBA
+    local found = {}
+
+    if not self:intersectsRange(range) then return found end
+
+    for _, point in ipairs(self.points) do
+        if not contains(range, point) then goto continue end
+        table.insert(found, point)
+
+        :: continue ::
+    end
+
+    if self.divided then
+
+        for _, child in ipairs(self.children) do
+
+            local results = child:rectangularQuery(range)
+            for _, point in ipairs(results) do
+                table.insert(found, point)
+            end
+
+        end
+
+    end
+
+    return found
 end
 
 --[[
@@ -52,15 +84,20 @@ radius = num
 ]]
 
 function Quadtree:circularQuery(center, radius)
-    --%note TBA
+    local found = {}
+
+    return found
 end
 
--- Check if the quadtree has a point inside
+-- Basically just a wrapper for contains(quadtree, point)
 function Quadtree:contains(point)
-    return point.x >= self.x
-        and point.x < self.x + self.width
-        and point.y >= self.y
-        and point.y < self.y + self.height
+    return contains(self, point)
+end
+
+-- Check if the quadtree intersects a range
+function Quadtree:intersectsRange(range)
+    return not (self.x + self.width < range.x or self.x > range.x + range.width
+           or self.y + self.height < range.y or self.y > range.y + range.height)
 end
 
 -- Inserts new point into the quadtree
