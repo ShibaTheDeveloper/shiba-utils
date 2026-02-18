@@ -56,7 +56,7 @@ center = {x, y}
 radius = num
 ]]
 
-function Quadtree:radiusQuery(center, radius)
+function Quadtree:queryRadius(center, radius)
     local found = {}
 
     if not self:intersectsRadius(center, radius) then return found end
@@ -72,7 +72,7 @@ function Quadtree:radiusQuery(center, radius)
 
         for _, child in ipairs(self.children) do
 
-            local results = child:radiusQuery(center, radius)
+            local results = child:queryRadius(center, radius)
             for _, point in ipairs(results) do
                 table.insert(found, point)
             end
@@ -96,7 +96,7 @@ range = {
 }
 ]]
 
-function Quadtree:rangeQuery(range)
+function Quadtree:queryRange(range)
     local found = {}
 
     if not self:intersectsRange(range) then return found end
@@ -112,7 +112,7 @@ function Quadtree:rangeQuery(range)
 
         for _, child in ipairs(self.children) do
 
-            local results = child:rangeQuery(range)
+            local results = child:queryRange(range)
             for _, point in ipairs(results) do
                 table.insert(found, point)
             end
