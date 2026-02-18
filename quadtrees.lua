@@ -28,6 +28,11 @@ Quadtree.__index = Quadtree
 
 local Module = {}
 
+-- Check if two points are the same
+local function pointsEqual(a, b)
+    return a.x == b.x and a.y == b.y
+end
+
 -- Check if a point is inside a circle
 local function pointInCircle(point, center, radius)
     local dx = point.x - center.x
@@ -39,9 +44,9 @@ end
 -- Check if a range has a point inside
 local function contains(range, point)
     return point.x >= range.x
-        and point.x < range.x + range.width
+        and point.x <= range.x + range.width
         and point.y >= range.y
-        and point.y < range.y + range.height
+        and point.y <= range.y + range.height
 end
 
 --[[
@@ -55,6 +60,26 @@ function Quadtree:radiusQuery(center, radius)
     local found = {}
 
     if not self:intersectsRadius(center, radius) then return found end
+
+    for _, point in ipairs(self.points) do
+        if not pointInCircle(point, center, radius) then goto continue end
+        table.insert(found, point)
+
+        :: continue ::
+    end
+
+    if self.divided then
+
+        for _, child in ipairs(self.children) do
+
+            local results = child:radiusQuery(center, radius)
+            for _, point in ipairs(results) do
+                table.insert(found, point)
+            end
+
+        end
+
+    end
 
     return found
 end
@@ -186,6 +211,78 @@ function Quadtree:subdivide()
 
     self.divided = true
     self.points = {}
+end
+
+-- Merges the quadtree's empty children
+function Quadtree:mergeEmpty()
+    if not self.divided then return end
+
+    local allEmpty = true
+
+    for _, child in ipairs(self.children) do
+
+        if #child.points > 0 or child.divided then
+            allEmpty = false
+            break
+        end
+
+    end
+
+    if allEmpty then
+        self.divided = false
+        self.children = {}
+    end
+end
+
+-- Removes a point from the quadtree and merges empty children automatically
+function Quadtree:remove(point)
+    for index, value in ipairs(self.points) do
+
+        if pointsEqual(value, point) then
+            table.remove(self.points, index)
+            return true
+        end
+
+    end
+
+    for _, child in ipairs(self.children) do
+
+        local success = child:remove(point)
+        if success then
+            self:mergeEmpty()
+            return true
+        end
+
+    end
+
+    return false
+end
+
+-- Updates a point's position
+function Quadtree:update(old, new)
+    local success = self:remove(old)
+    if success then
+        self:insert(new)
+        return true
+    end
+
+    return false
+end
+
+-- Returns the quadtree and its children's points
+function Quadtree:getAllPoints()
+    local found = table.shallowClone(self.points)
+
+    for _, child in ipairs(self.children) do
+
+        local childPoints = child:getAllPoints()
+        for _, point in ipairs(childPoints) do
+            table.insert(found, point)
+        end
+
+    end
+
+    return found
 end
 
 -- Create a quadtree

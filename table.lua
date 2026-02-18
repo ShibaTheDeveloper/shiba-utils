@@ -77,4 +77,30 @@ function Module.find(table, search)
     return nil
 end
 
+-- Merges table b into table a non-recursively
+function Module.shallowMerge(a, b)
+    for key, value in pairs(b) do
+        a[key] = value
+    end
+
+    return a
+end
+
+-- Recursively merges table b into table a
+function Module.merge(a, b)
+    for key, value in pairs(b) do
+        if type(value) == "table" then
+            if type(a[key] or false) == "table" then
+                Module.merge(a[key], value)
+            else
+                a[key] = Module.clone(value)
+            end
+        else
+            a[key] = value
+        end
+    end
+
+    return a
+end
+
 return Module -- Returns Module :3
