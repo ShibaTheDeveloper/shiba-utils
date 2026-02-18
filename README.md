@@ -4,6 +4,7 @@ It will be getting future updates to further increase functionality.
 
 # Install Guide
 
+
 ## LuaRocks (Recommended)
 
 ### 1. Install LuaRocks
@@ -29,6 +30,9 @@ If you prefer **not to use LuaRocks**, you can install `shiba-utils` manually:
 
 #### Windows (PowerShell)
 `$env:LUA_PATH = "$PWD\modules\?.lua;$env:LUA_PATH"`
+
+- Works on **Linux**, **Windows** and **macOS**.
+- Does **NOT** automatically manage updates.
 
 # Additions
 It is **highly recommended** to read the code and its comments to figure out how to use it.
