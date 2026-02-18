@@ -91,53 +91,27 @@ function Quadtree:subdivide()
     local halfX = self.width / 2
     local halfY = self.height / 2
 
-    local childA = Module:createQuadtree({
-        width = halfX,
-        height = halfY,
+    local offsets = {
+        {0, 0},
+        {halfX, 0},
+        {0, halfY},
+        {halfX, halfY}
+    }
 
-        x = self.x,
-        y = self.y,
+    for _, offset in ipairs(offsets) do
+        local child = Module:createQuadtree({
+            width = halfX,
+            height = halfY,
 
-        capacity = self.capacity,
-        parent = self
-    })
-    table.insert(self.children, childA)
+            x = self.x + offset[1],
+            y = self.y + offset[2],
 
-    local childB = Module:createQuadtree({
-        width = halfX,
-        height = halfY,
+            capacity = self.capacity,
+            parent = self
+        })
 
-        x = self.x + halfX,
-        y = self.y,
-
-        capacity = self.capacity,
-        parent = self
-    })
-    table.insert(self.children, childB)
-
-    local childC = Module:createQuadtree({
-        width = halfX,
-        height = halfY,
-
-        x = self.x,
-        y = self.y + halfY,
-
-        capacity = self.capacity,
-        parent = self
-    })
-    table.insert(self.children, childC)
-
-    local childD = Module:createQuadtree({
-        width = halfX,
-        height = halfY,
-
-        x = self.x + halfX,
-        y = self.y + halfY,
-
-        capacity = self.capacity,
-        parent = self
-    })
-    table.insert(self.children, childD)
+        table.insert(self.children, child)
+    end
 
     -- Redistribute points between new children
     for _, point in ipairs(self.points) do
