@@ -2,6 +2,7 @@
 Library is incomplete, working on making it a package and finishing functionality.
 
 ## Install Guide
+[Install LuaRocks](https://github.com/luarocks/luarocks/blob/main/docs/download.md)
 
 `luarocks install shiba-utils`
 
