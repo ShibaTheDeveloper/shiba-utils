@@ -1,5 +1,5 @@
 # shiba-utils
-A Lua library which contains tons of useful functions that base lua should have had.
+A Lua library which contains tons of useful functions that base Lua should have had.
 The library currently lacks in some areas, which will be further completed in future updates
 
 # Install Guide
@@ -11,6 +11,9 @@ https://github.com/luarocks/luarocks/blob/main/docs/download.md
 ### 2. Install shiba-utils
 Run in the terminal:
 `luarocks install shiba-utils`
+
+Or download the rockspec here:
+https://luarocks.org/modules/shibathedeveloper/shiba-utils
 
 ### Installation Notes
 - Works on **Linux**, **Windows** and **macOS**.
@@ -42,7 +45,7 @@ It is **highly recommended** to read the code and its comments to figure out how
 - **math.lua** - Extended math functions like clamp
 - **quadtrees.lua** - Spatial quadtree data structure
 - **string.lua** - String formatting and manipulation
-- **table.lua** - table utilities (eg.: shallowClone, merge, etc.)
+- **table.lua** - table utilities (eg. shallowClone, merge, etc.)
 
 # Usage example
 ```lua
