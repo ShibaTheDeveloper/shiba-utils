@@ -3,10 +3,10 @@ local table = require("table")
 --[[
 What is a "point"?
 
-local point = {
-    x = 50,
-    y = 25
-}
+i think its like uhhh... idk man..
+a point is like a point in like a space
+and the point like points to a certain point
+if you get what im saying
 ]]
 
 local Quadtree = {
