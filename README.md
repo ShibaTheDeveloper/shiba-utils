@@ -1,6 +1,6 @@
 # shiba-utils
-A Lua library which contains tons of useful functions that base Lua should have had.
-The library currently lacks in some areas, which will be further completed in future updates
+A Lua library which contains tons of useful functions that base Lua should have had. <br>
+**The library currently lacks in some areas, which will be further completed in future updates.**
 
 # Install Guide
 ## LuaRocks (Recommended)
