@@ -160,19 +160,19 @@ end
 -- Create a quadtree
 function Module:createQuadtree(data)
     local quadtree = setmetatable({
-            width = data.width or 100,
-            height = data.height or 100,
+        width = data.width or 100,
+        height = data.height or 100,
 
-            x = data.x or 0,
-            y =  data.y or 0,
+        x = data.x or 0,
+        y =  data.y or 0,
 
-            capacity = data.capacity or 4,
-            parent = data.parent or nil,
+        capacity = data.capacity or 4,
+        parent = data.parent or nil,
 
-            divided = false,
+        divided = false,
 
-            children = {},
-            points = {}
+        children = {},
+        points = {}
     }, Quadtree)
 
     for _, point in ipairs(data.points) do
