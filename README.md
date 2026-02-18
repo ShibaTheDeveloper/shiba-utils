@@ -20,7 +20,7 @@ It is highly recommended to read the code and its comments to figure out how to 
 
 # Usage example
 ```lua
-local math = require("lua-utils.math") -- This will not shadow the original library's functions, as shown further in the example
+local math = require("shiba-utils.math") -- This will not shadow the original library's functions, as shown further in the example
 
 -- Returns and prints 4
 local clamped = math.clamp(5, 0, 4) -- x, min, max
