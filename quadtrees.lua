@@ -41,7 +41,7 @@ range = {
 ]]
 
 function Quadtree:rectangularQuery(range)
-
+    --%note TBA
 end
 
 --[[
@@ -52,7 +52,7 @@ radius = num
 ]]
 
 function Quadtree:circularQuery(center, radius)
-
+    --%note TBA
 end
 
 -- Check if the quadtree has a point inside
