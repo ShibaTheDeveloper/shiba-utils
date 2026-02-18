@@ -8,12 +8,19 @@ Library is incomplete, working on making it a package and finishing functionalit
 - Works on Linux, Windows, macOS.
 - Automatically installs all modules and manages updates.
 
-# What does this add?
-Check out the code. It's commented enough to help you understand what's happening without you getting absorbed into comment hell (for the most part).
+# Additions
+It is highly recommended to read the code and its comments to figure out how to use it.
 
-# Example
+- color.lua
+- id-manager.lua
+- math.lua
+- quadtrees.lua
+- string.lua
+- table.lua
+
+# Usage example
 ```lua
-local math = require("lua-utils.math")
+local math = require("lua-utils.math") -- This will not shadow the original library's functions, as shown further in the example
 
 -- Returns and prints 4
 local clamped = math.clamp(5, 0, 4) -- x, min, max
