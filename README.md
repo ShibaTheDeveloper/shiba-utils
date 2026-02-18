@@ -1,6 +1,6 @@
 # Notice
-The library currently lacks in some areas!
-It will be getting future updates to further increase functionality.
+### The library currently lacks in some areas!
+### It will be getting future updates to further increase functionality.
 
 # Install Guide
 
