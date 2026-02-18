@@ -33,8 +33,8 @@ local function pointsEqual(a, b)
     return a.x == b.x and a.y == b.y
 end
 
--- Check if a point is inside a circle
-local function pointInCircle(point, center, radius)
+-- Check if a point is inside a radius
+local function isPointInRadius(point, center, radius)
     local dx = point.x - center.x
     local dy = point.y - center.y
 
@@ -62,7 +62,7 @@ function Quadtree:radiusQuery(center, radius)
     if not self:intersectsRadius(center, radius) then return found end
 
     for _, point in ipairs(self.points) do
-        if not pointInCircle(point, center, radius) then goto continue end
+        if not isPointInRadius(point, center, radius) then goto continue end
         table.insert(found, point)
 
         :: continue ::
