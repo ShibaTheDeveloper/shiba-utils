@@ -17,8 +17,8 @@ Then in the terminal run:
 If you prefer **not to use LuaRocks**, you can install `shiba-utils` manually:
 
 ### 1. Clone the repository
-`git clone https://github.com/ShibaTheDeveloper/lua-utils.git`
-`cd lua-utils`
+`git clone https://github.com/ShibaTheDeveloper/lua-utils.git
+cd lua-utils`
 
 ### 2. Add `modules/` to your Lua path
 #### Linux / macOS (bash/zsh)
