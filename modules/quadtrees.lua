@@ -1,4 +1,4 @@
-local table = require("table")
+local table = require("modules.table")
 
 --[[
 What is a "point"?
