@@ -9,11 +9,11 @@ Using the library is very straightforward:
 3. Start using it.
 
 # What does this add?
-Check out the code. It's commented enough to help you understand what's happening without you getting absorbed into comment hell.
+Check out the code. It's commented enough to help you understand what's happening without you getting absorbed into comment hell (for the most part).
 
 # Example
 ```lua
-local math = require("lua-utils.string")
+local math = require("lua-utils.math")
 
 -- Returns and prints 4
 local clamped = math.clamp(5, 0, 4) -- x, min, max
