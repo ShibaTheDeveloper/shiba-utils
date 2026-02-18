@@ -14,8 +14,9 @@ https://github.com/luarocks/luarocks/blob/main/docs/download.md
 Run in the terminal:
 `luarocks install shiba-utils`
 
+### Installation Notes
 - Works on **Linux**, **Windows** and **macOS**.
-- Automatically installs all modules and manages updates.
+- Automatically manages updates.
 
 ## Manual
 If you prefer **not to use LuaRocks**, you can install `shiba-utils` manually:
@@ -31,6 +32,7 @@ If you prefer **not to use LuaRocks**, you can install `shiba-utils` manually:
 #### Windows (PowerShell)
 `$env:LUA_PATH = "$PWD\modules\?.lua;$env:LUA_PATH"`
 
+### Installation Notes
 - Works on **Linux**, **Windows** and **macOS**.
 - Does **NOT** automatically manage updates.
 
