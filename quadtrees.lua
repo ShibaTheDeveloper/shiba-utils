@@ -33,12 +33,22 @@ local function pointsEqual(a, b)
     return a.x == b.x and a.y == b.y
 end
 
+-- Calculates distance between two points
+local function getDistanceXY(a, b)
+    local dx = a.x - b.x
+    local dy = a.y - b.y
+
+    return dx, dy
+end
+
+local function isDistanceInRadius(dx, dy, radius)
+    return dx * dx + dy * dy <= radius * radius
+end
+
 -- Check if a point is inside a radius
 local function isPointInRadius(point, center, radius)
-    local dx = point.x - center.x
-    local dy = point.y - center.y
-
-    return dx * dx + dy * dy <= radius * radius
+    local dx, dy = getDistanceXY(point, center)
+    return isDistanceInRadius(dx, dy, radius)
 end
 
 -- Check if a range has a point inside
@@ -134,10 +144,12 @@ function Quadtree:isInRadius(center, radius)
     local closestX = math.max(self.x, math.min(center.x, self.x + self.width))
     local closestY = math.max(self.y, math.min(center.y, self.y + self.height))
 
-    local dx = closestX - center.x
-    local dy = closestY - center.y
+    local dx, dy = getDistanceXY({
+        x = closestX,
+        y = closestY
+    }, center)
 
-    return dx * dx + dy * dy <= radius * radius
+    return isDistanceInRadius(dx, dy, radius)
 end
 
 -- Check if the quadtree intersects a range
