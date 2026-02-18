@@ -3,7 +3,7 @@ Library is incomplete, working on making it a package and finishing functionalit
 
 ## Install Guide
 
-`luarocks install lua-utils`
+`luarocks install shiba-utils`
 
 - Works on Linux, Windows, macOS.
 - Automatically installs all modules and manages updates.
