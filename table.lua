@@ -68,4 +68,13 @@ function Module.reverse(array)
     return reversedTable
 end
 
+-- Searches a given table for a given value and returns its index
+function Module.find(table, search)
+    for index, value in ipairs(table) do
+        if value == search then return index end
+    end
+
+    return nil
+end
+
 return Module -- Returns Module :3

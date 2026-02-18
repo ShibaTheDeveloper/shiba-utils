@@ -11,6 +11,7 @@ end
 function Module.formatTime(years, days, hours, minutes, seconds, milliseconds)
     local timeStr = string.format("%dy %dd %02d:%02d:%02d.%03d",
         years, days, hours, minutes, seconds, milliseconds)
+
     return timeStr
 end
 
