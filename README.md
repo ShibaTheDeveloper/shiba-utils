@@ -1,5 +1,5 @@
 # shiba-utils
-A lua library which contains tons of useful functions that base lua should have had.
+A Lua library which contains tons of useful functions that base lua should have had.
 The library currently lacks in some areas, which will be further completed in future updates
 
 # Install Guide
