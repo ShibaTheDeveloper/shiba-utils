@@ -1,5 +1,14 @@
 local table = require("table")
 
+--[[
+What is a "point"?
+
+local point = {
+    x = 50,
+    y = 25
+}
+]]
+
 local Quadtree = {
     width = 100,
     height = 100,
@@ -19,14 +28,13 @@ Quadtree.__index = Quadtree
 
 local Module = {}
 
---[[
-Example of a "point"
+-- Check if a point is inside a circle
+local function pointInCircle(point, center, radius)
+    local dx = point.x - center.x
+    local dy = point.y - center.y
 
-local point = {
-    x = 50,
-    y = 25
-}
-]]
+    return dx * dx + dy * dy <= radius * radius
+end
 
 -- Check if a range has a point inside
 local function contains(range, point)
@@ -45,6 +53,8 @@ radius = num
 
 function Quadtree:radiusQuery(center, radius)
     local found = {}
+
+    if not self:intersectsRadius(center, radius) then return found end
 
     return found
 end
@@ -92,6 +102,17 @@ end
 -- Basically just a wrapper for contains(quadtree, point)
 function Quadtree:contains(point)
     return contains(self, point)
+end
+
+-- Check if the quadtree node intersects a circle with a given center and radius
+function Quadtree:intersectsRadius(center, radius)
+    local closestX = math.max(self.x, math.min(center.x, self.x + self.width))
+    local closestY = math.max(self.y, math.min(center.y, self.y + self.height))
+
+    local dx = closestX - center.x
+    local dy = closestY - center.y
+
+    return dx * dx + dy * dy <= radius * radius
 end
 
 -- Check if the quadtree intersects a range
