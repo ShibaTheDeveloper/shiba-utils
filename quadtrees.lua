@@ -175,7 +175,7 @@ function Module:createQuadtree(data)
         points = {}
     }, Quadtree)
 
-    for _, point in ipairs(data.points) do
+    for _, point in ipairs(data.points or {}) do
         quadtree:insert(point)
     end
 
