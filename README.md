@@ -15,7 +15,7 @@ Run in the terminal: <br>
 `luarocks install shiba-utils`
 
 #### Rockspec File
-Or download the rockspec here: <br>
+Download the rockspec here: <br>
 https://luarocks.org/modules/shibathedeveloper/shiba-utils <br>
 
 Navigate to it in the terminal: <br>
