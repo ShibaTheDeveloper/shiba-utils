@@ -2,7 +2,9 @@
 The library currently lacks in some areas!
 It will be getting future updates to further increase functionality.
 
-## Install Guide
+# Install Guide
+
+## LuaRocks
 Install [LuaRocks](https://github.com/luarocks/luarocks/blob/main/docs/download.md)
 
 Then in the terminal run:
