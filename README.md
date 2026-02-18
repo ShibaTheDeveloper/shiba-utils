@@ -1,5 +1,6 @@
 # Notice
-Library is incomplete, working on making it a package and finishing functionality.
+The library is **not finished!**
+It will be getting future updates for further functionality.
 
 ## Install Guide
 Install [LuaRocks](https://github.com/luarocks/luarocks/blob/main/docs/download.md)
@@ -7,18 +8,18 @@ Install [LuaRocks](https://github.com/luarocks/luarocks/blob/main/docs/download.
 Then in the terminal run:
 `luarocks install shiba-utils`
 
-- Works on Linux, Windows, macOS.
+- Works on **Linux**, **Windows** and **macOS**.
 - Automatically installs all modules and manages updates.
 
 # Additions
-It is highly recommended to read the code and its comments to figure out how to use it.
+It is **highly recommended** to read the code and its comments to figure out how to use it.
 
-- color.lua - Basic color utilities and conversions
-- id-manager.lua - A simple ID manager that generates unique numeric IDs and reuses released IDs to avoid gaps.
-- math.lua - Extended math functions like clamp
-- quadtrees.lua - Spatial quadtree data structure
-- string.lua - String formatting and manipulation
-- table.lua - table utilities (eg.: shallowClone, merge, etc.)
+- **color.lua** - Basic color utilities and conversions
+- **id-manager.lua** - A simple ID manager that generates unique numeric IDs and reuses released IDs to avoid gaps.
+- **math.lua** - Extended math functions like clamp
+- **quadtrees.lua** - Spatial quadtree data structure
+- **string.lua** - String formatting and manipulation
+- **table.lua** - table utilities (eg.: shallowClone, merge, etc.)
 
 # Usage example
 ```lua
