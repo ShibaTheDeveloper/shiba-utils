@@ -5,7 +5,7 @@ Library is incomplete, working on making it a package and finishing functionalit
 Using the library is very straightforward:
 
 1. Add it to your project.
-2. `require` one of its modules where needed. Don't worry, this won't overwrite the original lua library's functions.
+2. `require` one of its modules where needed. Don't worry about shadowing the original library, its functions will stay.
 3. Start using it.
 
 # What does this add?
