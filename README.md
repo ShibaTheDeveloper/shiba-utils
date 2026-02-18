@@ -9,11 +9,20 @@ The library currently lacks in some areas, which will be further completed in fu
 https://github.com/luarocks/luarocks/blob/main/docs/download.md
 
 ### 2. Install shiba-utils
-Run in the terminal:
+
+#### Terminal Command
+Run in the terminal: <br>
 `luarocks install shiba-utils`
 
-Or download the rockspec here:
-https://luarocks.org/modules/shibathedeveloper/shiba-utils
+#### Rockspec File
+Or download the rockspec here: <br>
+https://luarocks.org/modules/shibathedeveloper/shiba-utils <br>
+
+Navigate to it in the terminal: <br>
+`cd ~/Downloads/` <br>
+
+Then install it using LuaRocks: <br>
+`luarocks install REPLACE-WITH-FILE-NAME.rockspec`
 
 ### Installation Notes
 - Works on **Linux**, **Windows** and **macOS**.
