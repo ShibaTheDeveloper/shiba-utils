@@ -4,7 +4,7 @@ It will be getting future updates to further increase functionality.
 
 # Install Guide
 
-## LuaRocks
+## LuaRocks (Recommended)
 Install [LuaRocks](https://github.com/luarocks/luarocks/blob/main/docs/download.md)
 
 Then in the terminal run:
@@ -12,6 +12,9 @@ Then in the terminal run:
 
 - Works on **Linux**, **Windows** and **macOS**.
 - Automatically installs all modules and manages updates.
+
+## Manual
+TBA
 
 # Additions
 It is **highly recommended** to read the code and its comments to figure out how to use it.
