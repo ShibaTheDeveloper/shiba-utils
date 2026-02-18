@@ -10,11 +10,11 @@ https://github.com/luarocks/luarocks/blob/main/docs/download.md
 
 ### 2. Install shiba-utils
 
-#### Terminal Command
+#### Terminal Command (Recommended):
 Run in the terminal: <br>
 `luarocks install shiba-utils`
 
-#### Rockspec File
+#### Rockspec File:
 Download the rockspec here: <br>
 https://luarocks.org/modules/shibathedeveloper/shiba-utils <br>
 
