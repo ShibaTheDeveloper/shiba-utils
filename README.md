@@ -14,8 +14,8 @@ luarocks install lua-utils
 
 #### Linux / macOS
 
-git clone https://github.com/ShibaTheDeveloper/lua-utils.git
-cd lua-utils
+`git clone https://github.com/ShibaTheDeveloper/lua-utils.git
+cd lua-utils`
 
 - Place the `modules/` folder somewhere in your Lua path, e.g.:
 
