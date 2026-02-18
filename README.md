@@ -5,9 +5,12 @@ It will be getting future updates to further increase functionality.
 # Install Guide
 
 ## LuaRocks (Recommended)
-Install [LuaRocks](https://github.com/luarocks/luarocks/blob/main/docs/download.md)
 
-Then in the terminal run:
+### 1. Install LuaRocks
+https://github.com/luarocks/luarocks/blob/main/docs/download.md
+
+### 2. Install shiba-utils
+Run in the terminal:
 `luarocks install shiba-utils`
 
 - Works on **Linux**, **Windows** and **macOS**.
