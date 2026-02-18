@@ -28,6 +28,27 @@ local point = {
 }
 ]]
 
+-- Check if a range has a point inside
+local function contains(range, point)
+    return point.x >= range.x
+        and point.x < range.x + range.width
+        and point.y >= range.y
+        and point.y < range.y + range.height
+end
+
+--[[
+Checks for all points inside a radius
+
+center = {x, y}
+radius = num
+]]
+
+function Quadtree:radiusQuery(center, radius)
+    local found = {}
+
+    return found
+end
+
 --[[
 Checks for all points inside a rectangle
 
@@ -40,15 +61,7 @@ range = {
 }
 ]]
 
--- Check if a range has a point inside
-local function contains(range, point)
-    return point.x >= range.x
-        and point.x < range.x + range.width
-        and point.y >= range.y
-        and point.y < range.y + range.height
-end
-
-function Quadtree:rectangularQuery(range)
+function Quadtree:rangeQuery(range)
     local found = {}
 
     if not self:intersectsRange(range) then return found end
@@ -64,7 +77,7 @@ function Quadtree:rectangularQuery(range)
 
         for _, child in ipairs(self.children) do
 
-            local results = child:rectangularQuery(range)
+            local results = child:rangeQuery(range)
             for _, point in ipairs(results) do
                 table.insert(found, point)
             end
@@ -72,19 +85,6 @@ function Quadtree:rectangularQuery(range)
         end
 
     end
-
-    return found
-end
-
---[[
-Checks for all points inside a radius
-
-center = {x, y}
-radius = num
-]]
-
-function Quadtree:circularQuery(center, radius)
-    local found = {}
 
     return found
 end
