@@ -1,6 +1,6 @@
 # Notice
-The library is **not finished!**
-It will be getting future updates for further functionality.
+The library currently lacks in some areas!
+It will be getting future updates to further increase functionality.
 
 ## Install Guide
 Install [LuaRocks](https://github.com/luarocks/luarocks/blob/main/docs/download.md)
