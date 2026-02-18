@@ -19,7 +19,7 @@ local Quadtree = {
     capacity = 4,
     parent = nil,
 
-    divided = false,
+    subdivided = false,
 
     children = {},
     points = {}
@@ -68,7 +68,7 @@ function Quadtree:radiusQuery(center, radius)
         :: continue ::
     end
 
-    if self.divided then
+    if self.subdivided then
 
         for _, child in ipairs(self.children) do
 
@@ -108,7 +108,7 @@ function Quadtree:rangeQuery(range)
         :: continue ::
     end
 
-    if self.divided then
+    if self.subdivided then
 
         for _, child in ipairs(self.children) do
 
@@ -151,12 +151,12 @@ function Quadtree:insert(point)
     local contains = self:contains(point)
     if not contains then return false end
 
-    if not self.divided and #self.points < self.capacity then
+    if not self.subdivided and #self.points < self.capacity then
         table.insert(self.points, point)
         return true
     end
 
-    if not self.divided then
+    if not self.subdivided then
         self:subdivide()
     end
 
@@ -209,19 +209,19 @@ function Quadtree:subdivide()
 
     end
 
-    self.divided = true
+    self.subdivided = true
     self.points = {}
 end
 
 -- Merges the quadtree's empty children
 function Quadtree:mergeEmpty()
-    if not self.divided then return end
+    if not self.subdivided then return end
 
     local allEmpty = true
 
     for _, child in ipairs(self.children) do
 
-        if #child.points > 0 or child.divided then
+        if #child.points > 0 or child.subdivided then
             allEmpty = false
             break
         end
@@ -229,7 +229,7 @@ function Quadtree:mergeEmpty()
     end
 
     if allEmpty then
-        self.divided = false
+        self.subdivided = false
         self.children = {}
     end
 end
@@ -297,7 +297,7 @@ function Module:createQuadtree(data)
         capacity = data.capacity or 4,
         parent = data.parent or nil,
 
-        divided = false,
+        subdivided = false,
 
         children = {},
         points = {}
