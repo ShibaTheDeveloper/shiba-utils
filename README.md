@@ -14,7 +14,18 @@ Then in the terminal run:
 - Automatically installs all modules and manages updates.
 
 ## Manual
-TBA
+If you prefer **not to use LuaRocks**, you can install `shiba-utils` manually:
+
+### 1. Clone the repository
+`git clone https://github.com/ShibaTheDeveloper/lua-utils.git`
+`cd lua-utils`
+
+### 2. Add `modules/` to your Lua path
+#### Linux / macOS (bash/zsh)
+`export LUA_PATH="$PWD/modules/?.lua;;"`
+
+#### Windows (PowerShell)
+`$env:LUA_PATH = "$PWD\modules\?.lua;$env:LUA_PATH"`
 
 # Additions
 It is **highly recommended** to read the code and its comments to figure out how to use it.
