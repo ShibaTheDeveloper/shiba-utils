@@ -2,8 +2,9 @@
 Library is incomplete, working on making it a package and finishing functionality.
 
 ## Install Guide
-[Install LuaRocks](https://github.com/luarocks/luarocks/blob/main/docs/download.md)
+Install [LuaRocks](https://github.com/luarocks/luarocks/blob/main/docs/download.md)
 
+Then in the terminal run:
 `luarocks install shiba-utils`
 
 - Works on Linux, Windows, macOS.
