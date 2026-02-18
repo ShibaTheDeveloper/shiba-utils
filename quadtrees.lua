@@ -144,8 +144,7 @@ function Quadtree:subdivide()
 
         for _, child in ipairs(self.children) do
 
-            if child:contains(point) then
-                table.insert(child.points, point)
+            if child:insert(point) then
                 break
             end
 
