@@ -59,7 +59,7 @@ radius = num
 function Quadtree:queryRadius(center, radius)
     local found = {}
 
-    if not self:intersectsRadius(center, radius) then return found end
+    if not self:isInRadius(center, radius) then return found end
 
     for _, point in ipairs(self.points) do
         if not isPointInRadius(point, center, radius) then goto continue end
@@ -85,9 +85,9 @@ function Quadtree:queryRadius(center, radius)
 end
 
 --[[
-Checks for all points inside a rectangle
+Checks for all points inside an arbitrary rectangle
 
-range = {
+rect = {
     height = num,
     width = num,
 
@@ -96,13 +96,13 @@ range = {
 }
 ]]
 
-function Quadtree:queryRange(range)
+function Quadtree:queryRect(rect)
     local found = {}
 
-    if not self:intersectsRange(range) then return found end
+    if not self:isInRect(rect) then return found end
 
     for _, point in ipairs(self.points) do
-        if not contains(range, point) then goto continue end
+        if not contains(rect, point) then goto continue end
         table.insert(found, point)
 
         :: continue ::
@@ -112,7 +112,7 @@ function Quadtree:queryRange(range)
 
         for _, child in ipairs(self.children) do
 
-            local results = child:queryRange(range)
+            local results = child:queryRange(rect)
             for _, point in ipairs(results) do
                 table.insert(found, point)
             end
@@ -124,13 +124,13 @@ function Quadtree:queryRange(range)
     return found
 end
 
--- Basically just a wrapper for contains(quadtree, point)
+-- A wrapper for contains(quadtree, point)
 function Quadtree:contains(point)
     return contains(self, point)
 end
 
 -- Check if the quadtree node intersects a circle with a given center and radius
-function Quadtree:intersectsRadius(center, radius)
+function Quadtree:isInRadius(center, radius)
     local closestX = math.max(self.x, math.min(center.x, self.x + self.width))
     local closestY = math.max(self.y, math.min(center.y, self.y + self.height))
 
@@ -141,7 +141,7 @@ function Quadtree:intersectsRadius(center, radius)
 end
 
 -- Check if the quadtree intersects a range
-function Quadtree:intersectsRange(range)
+function Quadtree:isInRect(range)
     return not (self.x + self.width < range.x or self.x > range.x + range.width
            or self.y + self.height < range.y or self.y > range.y + range.height)
 end
