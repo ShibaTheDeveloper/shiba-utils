@@ -1,5 +1,5 @@
 package = "shiba-utils"
-version = "1.0.0-1"
+version = "1.0.0-2"
 
 source = {
     url = "https://github.com/ShibaTheDeveloper/shiba-utils/archive/refs/tags/v1.0.0.zip",
@@ -7,8 +7,8 @@ source = {
 }
 
 description = {
-    summary = "Utility library for lua.",
-    detailed = "A lua library which contains tons of useful functions that base lua should have had.",
+    summary = "Utility library for Lua.",
+    detailed = "A Lua library which contains tons of useful functions that base Lua should have had.",
     homepage = "https://github.com/ShibaTheDeveloper/shiba-utils",
     license = "MIT"
 }
